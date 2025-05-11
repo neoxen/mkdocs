@@ -1,0 +1,100 @@
+site_name: NeoDocs
+site_description: 个人知识库
+site_url: https://neoxen.cn/
+theme:
+  name: material
+  language: zh
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到暗色模式
+      primary: red
+      accent: cyan
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: 切换到亮色模式
+      primary: indigo
+      accent: lime
+  features:
+    - navigation.instant            # 即时加载
+    - navigation.instant.prefetch   # 即时预取
+    - navigation.instant.progress   # 进度指示器
+    - navigation.instant.preview    # 全局启用即时预览
+    - navigation.tracking           # 锚跟踪（类似点击后）
+    - navigation.tabs               # 启用选项卡（最顶层）
+    - navigation.tabs.sticky        # 粘性导航选项卡（保持可见）
+    - navigation.tabs.sections      # 分段
+    - navigation.expand             # 展开所有
+    - navigation.path               # 导航路径（面包屑）（没效果）
+    - navigation.indexes            # 节索引页
+    - toc.follow                    # 锚跟随
+    - navigation.top                # 返回顶部按钮
+    - navigation.footer             # 启用页脚（上一页、下一页）
+
+    - search.suggest                # 搜索建议
+    - search.highlight              # 搜索高亮显示
+    - search.share                  # 搜索分享
+
+    - header.autohide               # 自动隐匿头部
+plugins:
+  - search
+  - offline
+  - awesome-pages                   # 启用 mkdocs-awesome-plugin
+  - macros                          # 启用 mkdocs-macros-plugin
+  - tags:
+      tags_file: tags.md
+      tags_hierarchy: true          # 启用对标记层次结构
+      tags_hierarchy_separator: .   # 层次结构分隔符
+      shadow: true
+      export: true
+
+extra:
+  site_url: https://neoxen.cn/    # 上面的 site_url 会被覆盖为 http://127.0.0.1:8000
+  homepage: /
+  social: # 社交联系
+    - icon: fontawesome/brands/github 
+      link: https://github.com/neoxen
+      name: neoxen
+    - icon: fontawesome/brands/gitlab 
+      link: https://gitlab.com/neoxen
+      name: neoxen
+  generator: true
+
+copyright: Copyright &copy; 2025 NeoDocs
+markdown_extensions:
+  - admonition        # 信息块
+  - attr_list         # 属性列表
+  - footnotes         # 脚注
+  - md_in_html        # HTML 中的 Markdown
+  - toc:
+      title: == 大纲导航 ==
+      permalink: true
+      permalink_title: 悬停加载
+      toc_depth: 6
+  - pymdownx.tasklist:      # 任务列表
+      custom_checkbox: true
+  - pymdownx.highlight      # 语法高亮
+  - pymdownx.inlinehilite   # 内联语法高亮
+  - pymdownx.critic         # 启用：突出显示文档中添加、删除或更新的部分
+  - pymdownx.caret          # 启用：下划线 ^^、上标 ^
+  - pymdownx.keys           # 启用：键盘键 ++
+  - pymdownx.mark           # 启用：突出显示 == 
+  - pymdownx.tilde          # 启用：删除线 ~~、下标 ~
+  - pymdownx.details        # 启用：可折叠的 Admonition
+  - pymdownx.superfences    # 代码块
+  - pymdownx.emoji:         # 表情包
+
+
+extra_css:
+  - assets/css/custom.css   # 引用自定义 CSS 文件
+extra_javascript:
+  - assets/js/loader.js     # 引用自定义 JS 文件
